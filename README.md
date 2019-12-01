@@ -10,13 +10,15 @@ Make sure you have the dependencies installed. There is a section below for more
 
 In the command line, type:
 
-`git clone git clone https://github.com/redzic/dynamic-fake-bank.git`
+```
+git clone git clone https://github.com/redzic/dynamic-fake-bank.git
 
-`cd dynamic-fake-bank`
+cd dynamic-fake-bank
 
-`python build.py -bg`
+python build.py -bg
 
-`python manage.py runserver`
+python manage.py runserver
+```
 
 This will clone the repo, randomize the bank, and start the server at `localhost:8000`
 
@@ -40,9 +42,11 @@ The project uses Python 3 and Django, with a minor Python dependency, which is c
 
 Install the dependencies by typing the following into the command line:
 
-`pip install django`
+```
+pip install django
 
-`pip install colorama`
+pip install colorama
+```
 
 ### Anti-scam features
 
