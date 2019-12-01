@@ -1,0 +1,19 @@
+.link {
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: white;
+  }
+  &-primary {
+    @extend .link;
+    @include link-color($light-blue);
+  }
+
+  // White/gray link
+  &-secondary {
+    @extend .link;
+    @include link-color($white);
+  }
+}

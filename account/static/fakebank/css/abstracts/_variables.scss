@@ -1,0 +1,27 @@
+// color definitions
+$red: rgb(236, 54, 54);
+$green: rgb(37, 172, 89);
+$blue: rgb(63, 132, 243);
+
+$yellow: #ffc107;
+
+// These colors aren't exactly black or white for usability
+$black: #212529;
+$white: #e7e7e7;
+$gray: scale-color($black, $lightness: 25%, $saturation: -20%);
+
+$light-yellow: rgb(246, 236, 178);
+$dark-yellow: scale-color($light-yellow, $lightness: -65%, $saturation: -20%);
+
+$light-blue: scale-color($blue, $lightness: 15%, $saturation: 100%);
+
+$primary-color: $green;
+$secondary-color: $black;
+$tertiary-color: $light-blue;
+
+// other variables
+// $margin-sides: calc(5% + 4rem) !default;
+$margin-sides: calc(6.5vw + 2.5% + 4rem) !default;
+
+$break-small: 1280px;
+$break-large: 1600px;

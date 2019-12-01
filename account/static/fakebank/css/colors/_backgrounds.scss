@@ -1,0 +1,7 @@
+.bg-black-gradient {
+  background: linear-gradient(
+    45deg,
+    scale-color(black, $lightness: 15%),
+    scale-color(black, $lightness: 5%)
+  );
+}

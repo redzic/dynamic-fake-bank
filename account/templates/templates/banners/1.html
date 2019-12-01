@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="flex justify-between">
+        <div class="flex justify-start w-full">
+            <div class="ml-dynamic w-full max-w-md flex-0">
+                <div class="bg-gray-100 rounded-lg p-6 m-10 shadow-xl flex-1">
+                    <p class="font-semibold text-2xl mb-4 font-secondary">Online Banking</p>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="w-full font-tertiary">
+                            <div class="mb-4">
+                                <div class="relative">
+                                    <select
+                                        class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        id="grid-state">
+                                        <option>Business</option>
+                                        <option>Personal</option>
+                                    </select>
+                                    <div
+                                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4">
+                                <div class="mb-4">
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        name="username" required id="id_username" type="text" placeholder="Username">
+                                </div>
+                                <div class="mb-6">
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                        name="password" required id="id_password" type="password"
+                                        placeholder="Password">
+                                </div>
+                                <div class="flex items-center">
+                                    <button
+                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-6"
+                                        type="submit">
+                                        Login
+                                    </button>
+                                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                                        href="#">
+                                        Apply Today
+                                    </a>
+                                </div>
+                            </form>
+
+                            <p class="text-center text-gray-500 text-xs pt-4">
+                                &copy;2019 {{ BANK_NAME }} Inc. All rights reserved.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="mt-40 text-white ml-16 w-full">
+                <p class="text-3xl font-primary font-semibold mb-1">Welcome to {{ BANK_NAME }}</p>
+                <p class="font-secondary text-lg">{{ random_phrase }}</p>
+            </div>
+        </div>
+
+        <div class="text-white pt-40 mr-dynamic w-full max-w-md">
+            <div class="flex justify-center">
+                <div class="bg-black-gradient text-white rounded-lg p-6 mt-48 w-3/4 shadow-2xl">
+                    <p class="text-2xl mb-2 font-semibold font-secondary">Mobile App</p>
+                    <div class="font-tertiary">
+                        <p class="mb-4">Download our state-of-the-art mobile banking suite today!</p>
+
+                        <p class="mb-4"><a href="#" class="link-primary">Try Mobile Banking</a></p>
+
+                        <div class="flex content-center">
+                            <a href="#"><img src="{% static 'fakebank/img/logos/app-store-badge.svg' %}"
+                                    class="h-10 mr-3"></a>
+                            <a href="#"><img src="{% static 'fakebank/img/logos/google-play-badge.svg' %}"
+                                    class="h-10"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

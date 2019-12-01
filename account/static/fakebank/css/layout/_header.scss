@@ -1,0 +1,35 @@
+.banner {
+  background: $primary-color;
+  background: linear-gradient(
+    135deg,
+    adjust-color($color: $primary-color, $hue: 6, $lightness: -1%),
+    adjust-color($color: $primary-color, $hue: 2, $lightness: -2%)
+  );
+
+  padding: 1rem $margin-sides;
+
+  img {
+    float: left;
+    margin-right: -2em;
+    padding-right: 3em;
+  }
+}
+
+.menu {
+  background: rgb(54, 54, 54);
+  background: linear-gradient(
+    -90deg,
+    scale-color($secondary-color, $lightness: 2%),
+    scale-color($secondary-color, $lightness: 5%)
+  );
+
+  padding: 0 $margin-sides;
+}
+
+.container-fluid {
+  height: 32rem;
+  background: linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
+    url(https://source.unsplash.com/1920x1080/?nature);
+  background-size: cover;
+  background-position: center;
+}

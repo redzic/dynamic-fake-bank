@@ -1,0 +1,13 @@
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  #{$property}: $value;
+}
+
+@mixin link-color($color) {
+  color: $color;
+  &:hover {
+    color: scale-color($color, $saturation: 2%, $lightness: -10%);
+  }
+}

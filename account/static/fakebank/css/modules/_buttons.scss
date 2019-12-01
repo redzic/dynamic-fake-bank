@@ -1,0 +1,100 @@
+.btn-details {
+  div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .effect1 {
+    color: $light-blue;
+    text-decoration: none;
+    font-family: $tertiary-font;
+    font-size: 24px;
+    position: relative;
+    padding: 10px 50px 10px 20px;
+
+    -webkit-transition: all 0.3s;
+
+    -o-transition: all 0.3s;
+
+    transition: all 0.3s;
+
+    -webkit-transform: scale(3);
+
+    -ms-transform: scale(3);
+
+    transform: scale(0.65); /*change scale(3) to scale(1)*/
+
+    .bg {
+      background: $light-blue;
+      width: 30px;
+      height: 2px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -1px;
+      z-index: -1;
+
+      -webkit-transition: all 0.3s;
+
+      -o-transition: all 0.3s;
+
+      transition: all 0.3s;
+    }
+    &:hover {
+      padding-right: 20px;
+      color: #fff;
+      .bg {
+        height: 100%;
+        width: 100%;
+        border-radius: 0.2em;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+      }
+    }
+    .bg:before,
+    .bg:after {
+      content: "";
+      height: 2px;
+      width: 10px;
+      background: $light-blue;
+      position: absolute;
+      right: -2px;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+    .bg:before {
+      bottom: 3px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    .bg:after {
+      top: 3px;
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+    &:hover {
+      .bg:before,
+      .bg:after {
+        right: 0;
+      }
+      .bg:before {
+        bottom: 6px;
+      }
+      .bg:after {
+        top: 6px;
+      }
+    }
+  }
+}

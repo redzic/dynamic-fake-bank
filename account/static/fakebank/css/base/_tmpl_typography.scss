@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=$font_stack&display=swap");
+
+// for icons effect
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+// Invalid SCSS because these are Python template variables, not SCSS variables
+$primary_font
+$secondary_font
+$tertiary_font
+
+.font-primary {
+    font-family: $$primary-font;
+}
+
+.font-secondary {
+    font-family: $$secondary-font;
+}
+
+.font-tertiary {
+    font-family: $$tertiary-font;
+}

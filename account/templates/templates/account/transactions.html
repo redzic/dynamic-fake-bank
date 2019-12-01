@@ -1,0 +1,37 @@
+{% extends 'account/base.html' %}
+
+{% block title %}{{ BANK_NAME }} &mdash; Transactions History{% endblock %}
+
+{% block content %}
+{% load static %}
+
+$header
+
+<div class="grid-container">
+
+    <p class="font-semibold text-2xl font-secondary">Transaction History</p>
+    <table class="table table-auto w-full font-tertiary shadow-xl rounded-lg mb-10">
+        <tr>
+            <th class="px-8 py-5">Date</th>
+            <th class="px-8 py-5">Account</th>
+            <th class="px-8 py-5">Description</th>
+            <th class="px-8 py-5">Type</th>
+            <th class="px-8 py-5">Amount</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td class="px-8 py-5">{{ transaction.format_date }}</td>
+            <td class="px-8 py-5">****{{ transaction.account }}</td>
+            <td class="px-8 py-5">{{ transaction.description }}</td>
+            <td class="px-8 py-5">{{ transaction.category }}</td>
+            <td class="px-8 py-5">
+                <p>{{ transaction.format_amount }}</p>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="font-tertiary text-sm text-gray-600">We only display the past 30 days of activity in your web portal.
+        Please use the mobile banking app to view your entire transaction history.</p>
+</div>
+
+{% endblock %}

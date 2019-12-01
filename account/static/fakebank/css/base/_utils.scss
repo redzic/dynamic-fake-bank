@@ -1,0 +1,30 @@
+.mx-dynamic {
+  margin-left: $margin-sides;
+  margin-right: $margin-sides;
+}
+
+.px-dynamic {
+  padding-left: $margin-sides;
+  padding-right: $margin-sides;
+}
+
+.ml-dynamic {
+  margin-left: $margin-sides;
+}
+
+.mr-dynamic {
+  margin-right: $margin-sides;
+}
+
+.mx-128 {
+  margin-left: 32rem;
+  margin-right: 32rem;
+}
+
+.w-128 {
+  width: 32rem;
+}
+
+.w-72 {
+  width: 18rem;
+}

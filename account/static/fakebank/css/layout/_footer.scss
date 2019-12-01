@@ -1,0 +1,22 @@
+.footer {
+  border-top: 0.5em solid $primary-color;
+
+  padding: 2rem $margin-sides;
+  color: $white;
+
+  background: linear-gradient(
+    180deg,
+    adjust-color($color: $secondary-color, $lightness: 5%),
+    adjust-color($color: $secondary-color, $lightness: 2%)
+  );
+
+  #escape {
+    // overwrite functionality
+    line-height: 1.6;
+    &:hover {
+      color: $white;
+      text-decoration: none;
+      cursor: auto;
+    }
+  }
+}
