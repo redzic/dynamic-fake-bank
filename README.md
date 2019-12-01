@@ -48,7 +48,7 @@ Install the dependencies by typing the following into the command line:
 
 Currently this list is very small, but hopefully it will expand in the future. I plan to provide some way of manually enabling and disabling these features.
 
-- The balance on the account page has an invisible zero-width character in between each visible character. This makes it nearly impossible to do a CTRL+F while inspecting the element to find the balance amount and change it that way.
+- The balance on the account page has an invisible zero-width character in between each visible character. This makes it nearly impossible to do a CTRL+F search while inspecting the element to find the balance amount and change it that way.
 
 ## Contributing
 
