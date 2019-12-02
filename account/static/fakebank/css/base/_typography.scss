@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Ibarra+Real+Nova|Titillium+Web|Varela&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Yeseva+One|Open+Sans|Source+Sans+Pro&display=swap");
 
 // for icons effect
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 // Invalid SCSS because these are Python template variables, not SCSS variables
-$primary-font: "Ibarra Real Nova", serif;
-$secondary-font: "Titillium Web", sans-serif;
-$tertiary-font: "Varela", sans-serif;
+$primary-font: "Yeseva One", serif;
+$secondary-font: "Open Sans", sans-serif;
+$tertiary-font: "Source Sans Pro", sans-serif;
 
 .font-primary {
     font-family: $primary-font;

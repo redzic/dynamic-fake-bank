@@ -8,6 +8,8 @@ from string import Template
 from colorama import Fore, Style, init
 import platform
 import shutil
+import django
+
 
 init()
 
@@ -29,7 +31,11 @@ parser.add_argument('-g', '--gen-conf', action='store_true',
                     ' `config.json`')
 
 parser.add_argument('-a', '--randomize-account', action='store_true',
-                    help='Randomize account information, mainly transaction history')
+                    help='Randomize account information')
+
+# TODO allow user to specify percentile of wealth
+# parser.add_argument('-a', '--randomize-account', type=float, default=50,
+#                     help='Randomize account information. Optionally specify percentile of wealth')
 
 
 args = parser.parse_args()
@@ -47,6 +53,10 @@ def sass_installation_instructions():
         instructions = "Go to https://github.com/sass/libsass/releases and download a libsass installer."
 
     return instructions
+
+
+class SassNotInstalledError(Exception):
+    pass
 
 
 def build():
@@ -97,6 +107,7 @@ def build():
             print(f"{Fore.RED}{Style.BRIGHT}ERROR: Sass is not installed.")
             print(f"Cannot compile CSS from SCSS source.\n{Style.RESET_ALL}")
             print(f"{Fore.LIGHTYELLOW_EX}{sass_installation_instructions()}")
+            raise SassNotInstalledError()
 
     print(f"{Fore.GREEN}{Style.BRIGHT}Finished compiling CSS{Style.RESET_ALL}")
 
@@ -113,7 +124,7 @@ def build():
     os.chdir('account/templates/templates/headers')
 
     # TODO allow for directories to be named anything
-    # e.g. go by order. But think about if this is actually what you want first
+    # e.g. go by order. Should this actually be implemented though?
     os.chdir(str(config['header']))
 
     # TODO simplify with functions
@@ -201,6 +212,95 @@ def generate_config():
         json.dump(config, f)
 
 
+def generate_account():
+    """
+    Generates a bank account with multiple accounts and transactions
+    """
+    def income(p):
+        "Returns annual income based on percentile `p`."
+
+        # This is the only thing that is carefully calculated
+        # Do not change this if trying to change generated wealth distribution
+
+        # The only thing to fix is that the behavior is asymptotic too quickly
+        return 1.095**p + 600*p - 10001 - (1000000 / (p - 100))
+
+    django.setup()
+
+    from account.models import Account, Transaction
+
+    Account.objects.all().delete()
+    Transaction.objects.all().delete()
+
+    account_numbers = random.sample(range(0, 9999), 3)
+
+    # It does not generate an account below the 15th percentile because there
+    # probably is a certain threshold of people that would have to sign up for
+    # the bank in the first place
+    p = random.uniform(15, 100)
+    income = income(p)
+
+    # TODO make this a more realistic distribution
+    # FIXME this is definitely the most unrealistic part of this thing
+    discretionary = random.uniform(0.65, 2) * (0.7 * p/100)
+
+    # pertains to percentage in each account, does not affect total wealth
+    wealth_percentage = [random.uniform(0, 1)]
+    wealth_percentage.append(1 - wealth_percentage[0])
+
+    # This will cause the savings account to always have more money than the
+    # personal checking
+    wealth_percentage.sort()
+
+    print(f"Account is wealthier than {p:.2f}% of Americans")
+    print(f"Income: ${income:,.2f} per year")
+    print(
+        f"The account has {100*discretionary:.2f}% of the account holder's income")
+    print("Keep in mind that the generated account information does not currently accurately reflect the statistics given")
+
+    Account(account_type="Personal Checking",
+            account_number=account_numbers[0],
+            available_balance=(100*discretionary*income*wealth_percentage[0])).save()
+
+    Account(account_type="Savings Account",
+            account_number=account_numbers[1],
+            available_balance=(100*discretionary*income*wealth_percentage[1])).save()
+
+    # TODO implement actual balance calculation based on income percentile
+    Account(account_type="Silver Credit Card",
+            account_number=account_numbers[2],
+            available_balance=random.randint(-500000, 200000)).save()
+
+    # TODO fix implementation
+    Transaction(
+        days_ago=0, account=account_numbers[0], description='Netflix',
+        category='Debit', amount=-1499).save()
+
+    Transaction(
+        days_ago=1, account=account_numbers[0], description='WINRAR',
+        category='Debit', amount=-2999).save()
+
+    Transaction(
+        days_ago=1, account=account_numbers[0], description='AT&T',
+        category='Debit', amount=-12999).save()
+
+    Transaction(
+        days_ago=3, account=account_numbers[0], description='Check #3193',
+        category='Deposit', amount=random.randint(65000, 85000)).save()
+
+    Transaction(
+        days_ago=4, account=account_numbers[0], description='In-N-Out',
+        category='Debit', amount=-1599).save()
+
+    Transaction(
+        days_ago=5, account=account_numbers[0], description='Blockbuster',
+        category='Debit', amount=-3592).save()
+
+    Transaction(
+        days_ago=5, account=account_numbers[0], description='PG&E/Autopay',
+        category='ACH Transfer', amount=-23500).save()
+
+
 if __name__ == '__main__':
     if not args.gen_conf and not args.build and not args.randomize_account:
         print(
@@ -233,4 +333,6 @@ if __name__ == '__main__':
             build()
 
         if args.randomize_account:
-            print("This is not currently implemented. Check back later.")
+            generate_account()
+            print(
+                f"{Fore.GREEN}{Style.BRIGHT}Account info generated{Style.RESET_ALL}")

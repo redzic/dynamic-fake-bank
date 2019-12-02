@@ -1,14 +1,6 @@
 from django.db import models
 import datetime
 
-# Unbelievably basic for now, can improve later
-
-# authentication = {'password': 'hunter2'}
-
-# FIXME for now there are global accounts,
-# more of a learning thing rather than a
-# practical thing because it's fake anyway lmao
-
 
 def format_money(amount):
     """Takes amount (in cents) and returns a more readable string
@@ -23,32 +15,38 @@ class Account(models.Model):
 
     account_type = models.CharField(max_length=120, primary_key=True)
     account_number = models.IntegerField()
-    # available_balance is in cents
+
+    # Money is always stored as CENTS as an integer
+    # TODO rename available_balance to balance
     available_balance = models.IntegerField()
 
     @property
     def format_amount(self):
         return format_money(self.available_balance)
 
-    def __str__(self):
-        return f"****{self.account_number}: {format_money(self.available_balance)}"
+    @property
+    def format_account_number(self):
+        return f"{self.account_number:04}"
 
-    # Add ability to transfer money in between accounts later
-    # Add recent transactions model later
+    def __str__(self):
+        return f"{self.account_number}: {format_money(self.available_balance)}"
 
 
 class Transaction(models.Model):
-    # Should just dynamically and automatically generate transactions based on a few parameters
 
-    # Is an integer representing the amount of days ago it was
+    # Integer representing days ago of transaction
+    # This is so that transactions are always up to date and do not have to
+    # updated
     days_ago = models.IntegerField()
 
+    # Account that transaction pertains to
     account = models.IntegerField()
     description = models.CharField(max_length=60)
 
-    # Appears under 'type' category in HTML
+    # Appears under 'type' category in the website
     category = models.CharField(max_length=60)
 
+    # Amount is stored in CENTS as an integer, not dollars
     amount = models.IntegerField()
 
     @property
@@ -61,6 +59,4 @@ class Transaction(models.Model):
         return format_money(self.amount)
 
     def __str__(self):
-        return f"****{self.account} ({self.format_date()}): {format_money(self.amount)}"
-
-    # Transaction.objects.create(days_ago=0, account=3892, description="Netflix", category="Debit", amount=1499)
+        return f"{self.account} ({self.format_date}): {format_money(self.amount)}"
