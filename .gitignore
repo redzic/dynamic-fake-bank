@@ -1,6 +1,8 @@
+*.pyc
+*.pyo
+.vscode/
 db.sqlite3
-account/static/fakebank/css/style.css
-account/static/fakebank/css/style.css.map
-account/templates/account/*
-account/templates/fakebank/*
-account/__pycache__/*.pyc
+/account/static/fakebank/css/style.css
+/account/static/fakebank/css/style.css.map
+/account/templates/account/
+/account/templates/fakebank/
