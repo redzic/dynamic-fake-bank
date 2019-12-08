@@ -118,7 +118,7 @@ def bank_name():
         # bank name based on city
 
         if random.random() < 0.35:
-            bank += f"{random.choice(cardinal_directions)}"
+            bank += random.choice(cardinal_directions)
 
             if random.random() < 0.5:
                 bank += "ern"

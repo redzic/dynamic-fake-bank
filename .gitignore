@@ -1,3 +1,5 @@
 db.sqlite3
+account/static/fakebank/css/style.css
+account/static/fakebank/css/style.css.map
 account/templates/account/*
 account/templates/fakebank/*
