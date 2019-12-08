@@ -3,22 +3,25 @@
 {% block content %}
 {% load static %}
 
-<div class="banner">
-    <img src="{% static 'fakebank/img/logos/bank-logo.svg' %}" class="h-12 p-1">
-    <p class="text-3xl font-primary font-semibold text-white">{{ BANK_NAME }}</p>
+<div class="banner flex">
+    <div class="flex-auto mr-6">
+        <img src="{% static 'fakebank/img/logos/bank-logo.svg' %}" class="h-12 p-1">
+        <p class="text-3xl font-primary font-semibold text-white">{{ BANK_NAME }}</p>
+    </div>
+    <div class="mt-2">
+        <ul>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="./">Accounts</a></li>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="./transfer">Transfers</a></li>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="#">Contact</a></li>
+            <li class="inline-block py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="../../">Logout</a></li>
+        </ul>
+    </div>
 </div>
-
-<div class="menu">
-    <ul>
-        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="./">Accounts</a></li>
-        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="./transfer">Transfers</a></li>
-        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="#">Contact</a></li>
-        <li class="inline-block py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="../../">Logout</a></li>
-    </ul>
+<div class="bg-black-gradient h-4">
 </div>
 
 <div class="grid-container">
@@ -52,7 +55,7 @@
                 {% for transaction in transactions %}
                 <tr>
                     <td class="px-6 py-4">{{ transaction.format_date }}</td>
-                    <td class="px-6 py-4">****{{ transaction.account }}</td>
+                    <td class="px-6 py-4">****{{ transaction.format_account_number }}</td>
                     <td class="px-6 py-4">{{ transaction.description }}</td>
                     <td class="px-6 py-4">{{ transaction.format_amount }}</td>
                 </tr>

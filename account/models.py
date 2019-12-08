@@ -34,9 +34,6 @@ class Account(models.Model):
 
 class Transaction(models.Model):
 
-    # Integer representing days ago of transaction
-    # This is so that transactions are always up to date and do not have to
-    # updated
     days_ago = models.IntegerField()
 
     # Account that transaction pertains to
@@ -57,6 +54,10 @@ class Transaction(models.Model):
     @property
     def format_amount(self):
         return format_money(self.amount)
+
+    @property
+    def format_account_number(self):
+        return f"{self.account:04}"
 
     def __str__(self):
         return f"{self.account} ({self.format_date}): {format_money(self.amount)}"

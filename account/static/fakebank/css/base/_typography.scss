@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather|Roboto|Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Yeseva+One|Oxygen|Open+Sans&display=swap");
 
 // for icons effect
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 // Invalid SCSS because these are Python template variables, not SCSS variables
-$primary-font: "Merriweather", serif;
-$secondary-font: "Roboto", sans-serif;
-$tertiary-font: "Muli", sans-serif;
+$primary-font: "Yeseva One", serif;
+$secondary-font: "Oxygen", sans-serif;
+$tertiary-font: "Open Sans", sans-serif;
 
 .font-primary {
     font-family: $primary-font;

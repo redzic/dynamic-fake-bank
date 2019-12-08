@@ -9,6 +9,7 @@ from colorama import Fore, Style, init
 import platform
 import shutil
 import django
+import datetime
 
 
 init()
@@ -50,7 +51,7 @@ def sass_installation_instructions():
 
     elif platform.system() == 'Windows':
         # TODO test this
-        instructions = "Go to https://github.com/sass/libsass/releases and download a libsass installer."
+        instructions = "Go to https://github.com/sass/libsass/releases and download the latest libsass installer (will be a .msi file)"
 
     return instructions
 
@@ -222,8 +223,9 @@ def generate_account():
         # This is the only thing that is carefully calculated
         # Do not change this if trying to change generated wealth distribution
 
-        # The only thing to fix is that the behavior is asymptotic too quickly
         return 1.095**p + 600*p - 10001 - (1000000 / (p - 100))
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fakebank.settings')
 
     django.setup()
 
@@ -256,7 +258,6 @@ def generate_account():
     print(f"Income: ${income:,.2f} per year")
     print(
         f"The account has {100*discretionary:.2f}% of the account holder's income")
-    print("Keep in mind that the generated account information does not currently accurately reflect the statistics given")
 
     Account(account_type="Personal Checking",
             account_number=account_numbers[0],

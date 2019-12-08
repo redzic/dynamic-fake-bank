@@ -22,7 +22,7 @@ def index(request):
 
     context = {
         'accounts': Account.objects.all(),
-        'transactions': Transaction.objects.all()[::-1][:4],
+        'transactions': Transaction.objects.all()[:4],
         'BANK_NAME': bank_name()
     }
 
@@ -104,7 +104,7 @@ def transfer(request):
 def transactions(request):
 
     context = {
-        'transactions': Transaction.objects.all()[::-1],
+        'transactions': Transaction.objects.all().order_by('days_ago'),
         'BANK_NAME': bank_name()
     }
 

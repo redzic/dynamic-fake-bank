@@ -21,7 +21,7 @@ $header
         {% for transaction in transactions %}
         <tr>
             <td class="px-8 py-5">{{ transaction.format_date }}</td>
-            <td class="px-8 py-5">****{{ transaction.account }}</td>
+            <td class="px-8 py-5">****{{ transaction.format_account_number }}</td>
             <td class="px-8 py-5">{{ transaction.description }}</td>
             <td class="px-8 py-5">{{ transaction.category }}</td>
             <td class="px-8 py-5">
