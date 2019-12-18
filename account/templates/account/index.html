@@ -3,29 +3,31 @@
 {% block content %}
 {% load static %}
 
-<div class="banner flex justify-center bg-yellow-500">
-    <div class="flex-auto">
-        <p class="text-4xl font-primary font-semibold text-white text-center">{{ BANK_NAME }}</p>
+<div class="banner flex bg-green-500">
+    <div class="flex-auto mr-6">
+        <p class="text-3xl font-primary font-semibold text-white">{{ BANK_NAME }}</p>
+    </div>
+    <div class="mt-2">
+        <ul>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="./">Accounts</a></li>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="./transfer">Transfers</a></li>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="#">Contact</a></li>
+            <li class="inline-block py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="../../">Logout</a></li>
+        </ul>
     </div>
 </div>
-<div class="bg-black-gradient px-dynamic flex justify-center">
-    <ul class="flex-initial">
-        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="./">Accounts</a></li>
-        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="./transfer">Transfer</a></li>
-        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="#">Contact</a></li>
-        <li class="inline-block py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="../../">Logout</a></li>
-    </ul>
+<div class="bg-black-gradient h-4">
 </div>
 
 <div class="grid-container">
     <div class="flex">
         <div class="mr-12">
             <div class="w-full font-secondary">
-                <div class="rounded flex bg-yellow-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <a href="./transactions">
                             <i class="far fa-clipboard mr-4"></i>
@@ -39,7 +41,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="rounded flex bg-yellow-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <i class="far fa-user-headset mr-4"></i>
                         Contact support
@@ -49,7 +51,7 @@
                         Edit or add alerts
                     </div>
                 </div>
-                <div class="rounded flex bg-yellow-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <i class="far fa-phone-laptop mr-4"></i>
                         Go paperless
@@ -62,23 +64,23 @@
             </div>
 
             {% for account in accounts %}
-            <div class="bg-yellow-100 border-t-4 border-yellow-500 shadow-xl my-8">
+            <div class="bg-green-100 border-t-4 border-green-500 shadow-xl my-8">
                 <div class="flex">
                     <div class="flex-grow px-8 py-4">
                         <div class="flex items-baseline mb-1">
-                            <p class="mb-4 font-tertiary text-yellow-900 text-xl mr-4">
+                            <p class="mb-4 font-tertiary text-green-900 text-xl mr-4">
                                 {{ account.account_type }}
                             </p>
-                            <p class="text-yellow-900 opacity-50 tracking-widest">
+                            <p class="text-green-900 opacity-50 tracking-widest">
                                 XXXX{{ account.format_account_number }}
                             </p>
                         </div>
-                        <p class="font-bold font-secondary text-4xl text-yellow-900 tracking-wider">
+                        <p class="font-bold font-secondary text-4xl text-green-900 tracking-wider">
                             {{ account.format_amount }}
                         </p>
 
                     </div>
-                    <div class="bg-yellow-500 px-8 py-4 text-white font-tertiary">
+                    <div class="bg-green-500 px-8 py-4 text-white font-tertiary">
                         <a href="./transactions">
                             <div class="flex items-baseline">
                                 <p class="mb-4 flex-grow mr-8">

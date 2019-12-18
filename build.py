@@ -155,7 +155,7 @@ def build():
             html['index']
             .replace('$header', html['header']['index'])
             .replace('$banner', html['banner'])
-            .replace('${pcol}', config['colors'][0])
+            .replace('${pcol}', config['colors'])
         )
 
     copy_files(root)
@@ -172,7 +172,7 @@ def build():
             fss.write(
                 fs
                 .replace('$header', html['header']['account'])
-                .replace('${pcol}', config['colors'][0])
+                .replace('${pcol}', config['colors'])
             )
 
 
@@ -201,8 +201,8 @@ def generate_config():
             ['Lato', 'Roboto', 'Open Sans', 'Noto Sans', 'Fira Sans',
              'Source Sans Pro', 'Oxygen', 'Muli', 'Titillium Web', 'Varela'],
             2),
-        'colors': random.sample(
-            ['blue', 'green', 'purple', 'orange', 'red', 'indigo', 'yellow'], 2),
+        'colors': random.choice(
+            ['blue', 'green', 'purple', 'orange', 'red', 'indigo', 'teal']),
         'header': header,
         'banner': banner
     }
