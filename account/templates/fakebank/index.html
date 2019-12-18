@@ -5,7 +5,7 @@
 {% block content %}
 {% load static %}
 
-<div class="banner flex bg-indigo-500">
+<div class="banner flex bg-teal-500">
     <div class="flex-auto">
         <p class="text-4xl font-primary font-semibold text-white text-center">{{ BANK_NAME }}</p>
     </div>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="flex items-center">
                             <button
-                                class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-6"
+                                class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-6"
                                 type="submit">
                                 Login
                             </button>
@@ -178,7 +178,7 @@
         </div>
     </div>
     <footer class="font-tertiary leading-loose">
-        <div class="footer flex justify-between flex-wrap">
+        <div class="footer flex justify-between flex-wrap border-t-8 border-teal-500">
             <div class="w-48 p-6 m-8">
                 <p class="font-semibold text-lg">GENERAL</p>
                 <p class="cursor-pointer hover:text-gray-500 hover:underline">Join</p>
@@ -230,9 +230,7 @@
                     rights
                     reserved.</p>
             </div>
-
         </div>
-
     </footer>
 </div>
 {% endblock %}
