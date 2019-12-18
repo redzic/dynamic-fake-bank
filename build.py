@@ -4,12 +4,11 @@ import json
 import generator
 import random
 import argparse
-from string import Template
+from string import Template, Formatter
 from colorama import Fore, Style, init
 import platform
 import shutil
 import django
-import datetime
 
 
 init()
@@ -125,10 +124,7 @@ def build():
     os.chdir('account/templates/templates/headers')
 
     # TODO allow for directories to be named anything
-    # e.g. go by order. Should this actually be implemented though?
     os.chdir(str(config['header']))
-
-    # TODO simplify with functions
 
     with open('index.html') as f:
         html['header']['index'] = f.read()
@@ -155,12 +151,12 @@ def build():
     os.chdir('account/templates/fakebank')
 
     with open('index.html', 'w') as f:
-        f.write(Template(html['index']).substitute(
-            {
-                'header': html['header']['index'],
-                'banner': html['banner']
-            }
-        ))
+        f.write(
+            html['index']
+            .replace('$header', html['header']['index'])
+            .replace('$banner', html['banner'])
+            .replace('${pcol}', config['colors'][0])
+        )
 
     copy_files(root)
 
@@ -170,12 +166,14 @@ def build():
     # substitute each file with the header and write it to the main directory
     for f in (x for x in os.listdir() if x != 'base.html'):
         with open(f) as fs:
-            fs = Template(fs.read())
+            fs = fs.read()
 
         with open(f, 'w') as fss:
-            fss.write(fs.safe_substitute({
-                'header': html['header']['account'],
-            }))
+            fss.write(
+                fs
+                .replace('$header', html['header']['account'])
+                .replace('${pcol}', config['colors'][0])
+            )
 
 
 def generate_config():
@@ -203,6 +201,8 @@ def generate_config():
             ['Lato', 'Roboto', 'Open Sans', 'Noto Sans', 'Fira Sans',
              'Source Sans Pro', 'Oxygen', 'Muli', 'Titillium Web', 'Varela'],
             2),
+        'colors': random.sample(
+            ['blue', 'green', 'purple', 'orange', 'red', 'indigo', 'yellow'], 2),
         'header': header,
         'banner': banner
     }
@@ -214,9 +214,8 @@ def generate_config():
 
 
 def generate_account():
-    """
-    Generates a bank account with multiple accounts and transactions
-    """
+    "Generates a bank account with multiple accounts and transactions"
+
     def income(p):
         "Returns annual income based on percentile `p`."
 
@@ -246,12 +245,9 @@ def generate_account():
     # FIXME this is definitely the most unrealistic part of this thing
     discretionary = random.uniform(0.65, 2) * (0.7 * p/100)
 
-    # pertains to percentage in each account, does not affect total wealth
     wealth_percentage = [random.uniform(0, 1)]
     wealth_percentage.append(1 - wealth_percentage[0])
 
-    # This will cause the savings account to always have more money than the
-    # personal checking
     wealth_percentage.sort()
 
     print(f"Account is wealthier than {p:.2f}% of Americans")

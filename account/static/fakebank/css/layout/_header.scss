@@ -1,10 +1,10 @@
 .banner {
-  background: $primary-color;
-  background: linear-gradient(
-    135deg,
-    adjust-color($color: $primary-color, $hue: 6, $lightness: -1%),
-    adjust-color($color: $primary-color, $hue: 2, $lightness: -2%)
-  );
+  // background: $primary-color;
+  // background: linear-gradient(
+  //   135deg,
+  //   adjust-color($color: $primary-color, $hue: 6, $lightness: -1%),
+  //   adjust-color($color: $primary-color, $hue: 2, $lightness: -2%)
+  // );
 
   padding: 1rem $margin-sides;
 

@@ -9,10 +9,12 @@ $header
     <div class="flex">
         <div class="mr-12">
             <div class="w-full font-secondary">
-                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-${pcol}-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
-                        <i class="far fa-clipboard mr-4"></i>
-                        All transactions
+                        <a href="./transactions">
+                            <i class="far fa-clipboard mr-4"></i>
+                            All transactions
+                        </a>
                     </div>
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <a href="./transfer">
@@ -21,7 +23,7 @@ $header
                         </a>
                     </div>
                 </div>
-                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-${pcol}-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <i class="far fa-user-headset mr-4"></i>
                         Contact support
@@ -31,7 +33,7 @@ $header
                         Edit or add alerts
                     </div>
                 </div>
-                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-${pcol}-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <i class="far fa-phone-laptop mr-4"></i>
                         Go paperless
@@ -44,23 +46,23 @@ $header
             </div>
 
             {% for account in accounts %}
-            <div class="bg-green-100 border-t-4 border-green-500 shadow-xl my-8">
+            <div class="bg-${pcol}-100 border-t-4 border-${pcol}-500 shadow-xl my-8">
                 <div class="flex">
                     <div class="flex-grow px-8 py-4">
                         <div class="flex items-baseline mb-1">
-                            <p class="mb-4 font-tertiary text-green-900 text-xl mr-4">
+                            <p class="mb-4 font-tertiary text-${pcol}-900 text-xl mr-4">
                                 {{ account.account_type }}
                             </p>
-                            <p class="text-green-900 opacity-50 tracking-widest">
+                            <p class="text-${pcol}-900 opacity-50 tracking-widest">
                                 XXXX{{ account.format_account_number }}
                             </p>
                         </div>
-                        <p class="font-bold font-secondary text-4xl text-green-900 tracking-wider">
+                        <p class="font-bold font-secondary text-4xl text-${pcol}-900 tracking-wider">
                             {{ account.format_amount }}
                         </p>
 
                     </div>
-                    <div class="bg-green-500 px-8 py-4 text-white font-tertiary">
+                    <div class="bg-${pcol}-500 px-8 py-4 text-white font-tertiary">
                         <a href="./transactions">
                             <div class="flex items-baseline">
                                 <p class="mb-4 flex-grow mr-8">
@@ -148,8 +150,7 @@ $header
                 <div class="shadow-lg border p-6 my-6 rounded">
                     <p class="font-semibold text-lg mb-3 font-secondary">Record Low Interest Rates</p>
                     <div class="font-tertiary">
-                        <p class="mb-2">You're already approved. It takes just a moment to open an account.
-                        </p>
+                        <p class="mb-2">You're already approved. It takes just a moment to open an account.</p>
                         <p><a href="#" class="link-primary">Learn More</a></p>
                     </div>
                 </div>
