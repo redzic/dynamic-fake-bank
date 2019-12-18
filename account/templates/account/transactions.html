@@ -5,22 +5,25 @@
 {% block content %}
 {% load static %}
 
-<div class="banner">
-    <img src="{% static 'fakebank/img/logos/bank-logo.svg' %}" class="h-12 p-1">
-    <p class="text-3xl font-primary font-semibold text-white">{{ BANK_NAME }}</p>
+<div class="banner flex">
+    <div class="flex-auto mr-6">
+        <img src="{% static 'fakebank/img/logos/bank-logo.svg' %}" class="h-12 p-1">
+        <p class="text-3xl font-primary font-semibold text-white">{{ BANK_NAME }}</p>
+    </div>
+    <div class="mt-2">
+        <ul>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="./">Accounts</a></li>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="./transfer">Transfers</a></li>
+            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="#">Contact</a></li>
+            <li class="inline-block py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                    href="../../">Logout</a></li>
+        </ul>
+    </div>
 </div>
-
-<div class="menu">
-    <ul>
-        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="./">Accounts</a></li>
-        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="./transfer">Transfers</a></li>
-        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="#">Contact</a></li>
-        <li class="inline-block py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="../../">Logout</a></li>
-    </ul>
+<div class="bg-black-gradient h-4">
 </div>
 
 <div class="grid-container">
@@ -33,6 +36,7 @@
             <th class="px-8 py-5">Description</th>
             <th class="px-8 py-5">Type</th>
             <th class="px-8 py-5">Amount</th>
+            <th class="px-8 py-5"></th>
         </tr>
         {% for transaction in transactions %}
         <tr>
@@ -42,6 +46,11 @@
             <td class="px-8 py-5">{{ transaction.category }}</td>
             <td class="px-8 py-5">
                 <p>{{ transaction.format_amount }}</p>
+            </td>
+            <td class="px-8 py-5">
+                <a href="">
+                    <p class="text-red-600 hover:underline">Dispute</p>
+                </a>
             </td>
         </tr>
         {% endfor %}

@@ -8,7 +8,90 @@ $header
 <div class="grid-container">
     <div class="flex">
         <div class="mr-12">
-            <p class="font-secondary text-xl my-4 font-semibold">Accounts</p>
+            <div class="w-full font-secondary">
+                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
+                    <div class="w-1/2 mx-12 py-4 text-xl">
+                        <i class="far fa-clipboard mr-4"></i>
+                        All transactions
+                    </div>
+                    <div class="w-1/2 mx-12 py-4 text-xl">
+                        <a href="./transfer">
+                            <i class="far fa-money-check-edit-alt mr-4"></i>
+                            Make a transfer
+                        </a>
+                    </div>
+                </div>
+                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
+                    <div class="w-1/2 mx-12 py-4 text-xl">
+                        <i class="far fa-user-headset mr-4"></i>
+                        Contact support
+                    </div>
+                    <div class="w-1/2 mx-12 py-4 text-xl">
+                        <i class="far fa-info-circle mr-4"></i>
+                        Edit or add alerts
+                    </div>
+                </div>
+                <div class="rounded flex bg-green-500 shadow-xl text-white mb-4">
+                    <div class="w-1/2 mx-12 py-4 text-xl">
+                        <i class="far fa-phone-laptop mr-4"></i>
+                        Go paperless
+                    </div>
+                    <div class="w-1/2 mx-12 py-4 text-xl">
+                        <i class="far fa-id-card mr-4"></i>
+                        Edit profile
+                    </div>
+                </div>
+            </div>
+
+            {% for account in accounts %}
+            <div class="bg-green-100 border-t-4 border-green-500 shadow-xl my-8">
+                <div class="flex">
+                    <div class="flex-grow px-8 py-4">
+                        <div class="flex items-baseline mb-1">
+                            <p class="mb-4 font-tertiary text-green-900 text-xl mr-4">
+                                {{ account.account_type }}
+                            </p>
+                            <p class="text-green-900 opacity-50 tracking-widest">
+                                XXXX{{ account.format_account_number }}
+                            </p>
+                        </div>
+                        <p class="font-bold font-secondary text-4xl text-green-900 tracking-wider">
+                            {{ account.format_amount }}
+                        </p>
+
+                    </div>
+                    <div class="bg-green-500 px-8 py-4 text-white font-tertiary">
+                        <a href="./transactions">
+                            <div class="flex items-baseline">
+                                <p class="mb-4 flex-grow mr-8">
+                                    View transactions
+                                </p>
+                                <i class="far fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <a href="./transfer">
+                            <div class="flex items-baseline">
+                                <p class="mb-4 flex-grow mr-8">
+                                    Make a transfer
+                                </p>
+                                <i class="far fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="flex items-baseline">
+                                <p class="flex-grow mr-8">
+                                    More actions
+                                </p>
+                                <i class="far fa-chevron-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            <!-- <p class="font-secondary text-xl my-4 font-semibold">Accounts</p>
             <table class="table table-auto w-full font-tertiary shadow-xl rounded-lg mb-10">
                 <thead>
                     <th class="px-6 py-4">Type</th>
@@ -44,7 +127,7 @@ $header
             </table>
 
             <p><a href="./transactions" class="link-primary font-tertiary">See full list of transactions</a></p>
-            {% endif %}
+            {% endif %} -->
 
             <div class="flex justify-between">
                 <div class="shadow-lg border p-6 my-6 mr-4 rounded">
@@ -113,9 +196,9 @@ $header
                 </div>
             </div>
 
-            <button
+            <!-- <button
                 class="bg-transparent border border-blue-500 px-4 py-2 rounded text-blue-500 hover:bg-blue-500 shadow font-tertiary hover:text-white">Contact
-                Support</button>
+                Support</button> -->
 
         </div>
     </div>

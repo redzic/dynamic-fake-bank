@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 .vscode/
+config.json
 db.sqlite3
 /account/static/fakebank/css/style.css
 /account/static/fakebank/css/style.css.map
