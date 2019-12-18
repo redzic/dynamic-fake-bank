@@ -37,6 +37,7 @@ $header
                     <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         name="from_account" required id="id_from_account">
+                        <option>Account</option>
                         {% for account in accounts %}
                         <option value="{{ account.account_number }}">{{ account.account_type }}
                             ({{ account.account_number }}) </option>
@@ -57,6 +58,7 @@ $header
                     <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         name="to_account" required id="id_to_account">
+                        <option>Account</option>
                         {% for account in accounts %}
                         <option value="{{ account.account_number }}">{{ account.account_type }}
                             ({{ account.account_number }}) </option>

@@ -5,24 +5,22 @@
 {% block content %}
 {% load static %}
 
-<div class="banner flex bg-green-500">
-    <div class="flex-auto mr-6">
-        <p class="text-3xl font-primary font-semibold text-white">{{ BANK_NAME }}</p>
-    </div>
-    <div class="mt-2">
-        <ul>
-            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                    href="./">Accounts</a></li>
-            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                    href="./transfer">Transfers</a></li>
-            <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                    href="#">Contact</a></li>
-            <li class="inline-block py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                    href="../../">Logout</a></li>
-        </ul>
+<div class="banner flex justify-center bg-indigo-500">
+    <div class="flex-auto">
+        <p class="text-4xl font-primary font-semibold text-white text-center">{{ BANK_NAME }}</p>
     </div>
 </div>
-<div class="bg-black-gradient h-4">
+<div class="bg-black-gradient px-dynamic flex justify-center">
+    <ul class="flex-initial">
+        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="./">Accounts</a></li>
+        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="./transfer">Transfer</a></li>
+        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="#">Contact</a></li>
+        <li class="inline-block py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="../../">Logout</a></li>
+    </ul>
 </div>
 
 <div class="mx-dynamic py-10">
@@ -55,6 +53,7 @@
                     <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         name="from_account" required id="id_from_account">
+                        <option>Account</option>
                         {% for account in accounts %}
                         <option value="{{ account.account_number }}">{{ account.account_type }}
                             ({{ account.account_number }}) </option>
@@ -75,6 +74,7 @@
                     <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         name="to_account" required id="id_to_account">
+                        <option>Account</option>
                         {% for account in accounts %}
                         <option value="{{ account.account_number }}">{{ account.account_type }}
                             ({{ account.account_number }}) </option>
