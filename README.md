@@ -11,7 +11,7 @@ Make sure you have the dependencies installed. There is a section below for more
 In the command line, type:
 
 ```
-git clone git clone https://github.com/redzic/dynamic-fake-bank.git
+git clone https://github.com/redzic/dynamic-fake-bank.git
 
 cd dynamic-fake-bank
 
