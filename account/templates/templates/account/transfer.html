@@ -20,7 +20,7 @@ $header
         {% for account in accounts %}
         <tr>
             <td class="px-6 py-4">{{ account.account_type }}</td>
-            <td class="px-6 py-4">****{{ account.account_number }}</td>
+            <td class="px-6 py-4">****{{ account.format_account_number }}</td>
             <td class="px-6 py-4">{{ account.format_amount }}</td>
         </tr>
         {% endfor %}

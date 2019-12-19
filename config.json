@@ -1,7 +1,1 @@
-{
-  "BANK_NAME": "Gull & Bull Financial",
-  "fonts": ["Playfair Display", "Fira Sans", "Roboto"],
-  "colors": "green",
-  "header": 0,
-  "banner": 0
-}
+{"BANK_NAME": "Akron Credit Union", "fonts": ["Playfair Display", "Open Sans", "Noto Sans"], "colors": "red", "header": 1, "banner": 0}

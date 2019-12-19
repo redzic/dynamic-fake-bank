@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Fira+Sans|Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Open+Sans|Noto+Sans&display=swap");
 
 // for icons effect
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 // Invalid SCSS because these are Python template variables, not SCSS variables
 $primary-font: "Playfair Display", serif;
-$secondary-font: "Fira Sans", sans-serif;
-$tertiary-font: "Roboto", sans-serif;
+$secondary-font: "Open Sans", sans-serif;
+$tertiary-font: "Noto Sans", sans-serif;
 
 .font-primary {
     font-family: $primary-font;
