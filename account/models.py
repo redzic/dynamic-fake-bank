@@ -8,7 +8,7 @@ def format_money(amount):
     between each character so that it is impossible to do a CTRL+F search for
     the money, making the scammer's life more difficult."""
 
-    return "​".join(f"${amount/100:,.2f}")
+    return '\u200b'.join(f"${amount/100:,.2f}")
 
 
 class Account(models.Model):

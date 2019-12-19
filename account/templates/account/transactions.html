@@ -5,20 +5,20 @@
 {% block content %}
 {% load static %}
 
-<div class="banner flex justify-center bg-teal-500">
-    <div class="flex-auto">
-        <p class="text-4xl font-primary font-semibold text-white text-center">{{ BANK_NAME }}</p>
-    </div>
+<div class="banner bg-green-500">
+    <p class="text-3xl 
+        font-primary font-semibold text-white">{{ BANK_NAME }}</p>
 </div>
-<div class="bg-black-gradient px-dynamic flex justify-center">
-    <ul class="flex-initial">
-        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+
+<div class="menu">
+    <ul>
+        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
                 href="./">Accounts</a></li>
-        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
-                href="./transfer">Transfer</a></li>
-        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="./transfer">Transfers</a></li>
+        <li class="inline-block mr-12 py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
                 href="#">Contact</a></li>
-        <li class="inline-block py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+        <li class="inline-block py-1"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
                 href="../../">Logout</a></li>
     </ul>
 </div>
