@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 
-<div class="banner flex bg-red-500">
+<div class="banner flex bg-purple-500">
     <div class="flex-auto mr-6">
         <p class="text-3xl font-primary font-semibold text-white">{{ BANK_NAME }}</p>
     </div>
@@ -28,7 +28,7 @@
     <div class="flex">
         <div class="mr-12">
             <div class="w-full font-secondary">
-                <div class="rounded flex bg-red-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-purple-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <a href="./transactions">
                             <i class="far fa-clipboard mr-4"></i>
@@ -42,7 +42,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="rounded flex bg-red-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-purple-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <i class="far fa-user-headset mr-4"></i>
                         Contact support
@@ -52,7 +52,7 @@
                         Edit or add alerts
                     </div>
                 </div>
-                <div class="rounded flex bg-red-500 shadow-xl text-white mb-4">
+                <div class="rounded flex bg-purple-500 shadow-xl text-white mb-4">
                     <div class="w-1/2 mx-12 py-4 text-xl">
                         <i class="far fa-phone-laptop mr-4"></i>
                         Go paperless
@@ -65,23 +65,23 @@
             </div>
 
             {% for account in accounts %}
-            <div class="bg-red-100 border-t-4 border-red-500 shadow-xl my-8">
+            <div class="bg-purple-100 border-t-4 border-purple-500 shadow-xl my-8">
                 <div class="flex">
                     <div class="flex-grow px-8 py-4">
                         <div class="flex items-baseline mb-1">
-                            <p class="mb-4 font-tertiary text-red-900 text-xl mr-4">
+                            <p class="mb-4 font-tertiary text-purple-900 text-xl mr-4">
                                 {{ account.account_type }}
                             </p>
-                            <p class="text-red-900 opacity-50 tracking-widest">
+                            <p class="text-purple-900 opacity-50 tracking-widest">
                                 XXXX{{ account.format_account_number }}
                             </p>
                         </div>
-                        <p class="font-bold font-secondary text-4xl text-red-900 tracking-wider">
+                        <p class="font-bold font-secondary text-4xl text-purple-900 tracking-wider">
                             {{ account.format_amount }}
                         </p>
 
                     </div>
-                    <div class="bg-red-500 px-8 py-4 text-white font-tertiary">
+                    <div class="bg-purple-500 px-8 py-4 text-white font-tertiary">
                         <a href="./transactions">
                             <div class="flex items-baseline">
                                 <p class="mb-4 flex-grow mr-8">
