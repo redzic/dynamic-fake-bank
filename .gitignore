@@ -1,9 +1,12 @@
 *.pyc
 *.pyo
+__pycache__/
 .vscode/
+account/static/fakebank/css/base/_typography.scss
+account/static/fakebank/css/style.css
+account/templates/account/index.html
+account/templates/account/transactions.html
+account/templates/account/transfer.html
+account/templates/fakebank/index.html
 config.json
 db.sqlite3
-/account/static/fakebank/css/style.css
-/account/static/fakebank/css/style.css.map
-/account/templates/account/
-/account/templates/fakebank/
