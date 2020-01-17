@@ -17,10 +17,10 @@ def bank_name():
     function allows for the bank name to be changed and updated without
     restarting the server."""
 
-    with open('config.json') as f:
+    with open("config.json") as f:
         config = json.loads(f.read())
 
-    return config['BANK_NAME']
+    return config["BANK_NAME"]
 
 
 def index(request):
@@ -28,7 +28,7 @@ def index(request):
 
     form = LoginForm()
 
-    if request.method == 'POST':
+    if request.method == "POST":
 
         form = LoginForm(request.POST)
 
@@ -72,13 +72,13 @@ def index(request):
         "Our contracts are water tight, so you don't have to read them.",
         "Your money is our money.",
         "Inspiring blind trust in our customers since 1963.",
-        "Online since 1741."
+        "Online since 1741.",
     ]
 
     context = {
-        'form': form,
-        'random_phrase': random.choice(phrases),
-        'BANK_NAME': bank_name()
+        "form": form,
+        "random_phrase": random.choice(phrases),
+        "BANK_NAME": bank_name(),
     }
 
-    return render(request, 'fakebank/index.html', context)
+    return render(request, "fakebank/index.html", context)

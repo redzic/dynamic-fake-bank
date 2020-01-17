@@ -2,17 +2,51 @@ import random
 
 
 def bank_name():
-    cardinal_directions = ["North", "South", "East", "West", "Northeast",
-                           "Southwest", "Northwest", "Southeast", "Midwest"]
+    cardinal_directions = [
+        "North",
+        "South",
+        "East",
+        "West",
+        "Northeast",
+        "Southwest",
+        "Northwest",
+        "Southeast",
+        "Midwest",
+    ]
 
-    fluff = ["First", "Second", "Freedom", "Liberty",
-             "Tricounty", "Tri-state Area", "United", "National",
-             "International", "Federal", "Central", "Citizens", "Pacific",
-             "Atlantic", "Valley"]
+    fluff = [
+        "First",
+        "Second",
+        "Freedom",
+        "Liberty",
+        "Tricounty",
+        "Tri-state Area",
+        "United",
+        "National",
+        "International",
+        "Federal",
+        "Central",
+        "Citizens",
+        "Pacific",
+        "Atlantic",
+        "Valley",
+    ]
 
-    middle = ["Trust", "Credit Union", "Financial", "Community Mutual",
-              "Reserve", "Fund", "Bank", "Investment Solutions", "Group",
-              "Mutual", "Financial Corporation", "Financial Group", "Holdings"]
+    middle = [
+        "Trust",
+        "Credit Union",
+        "Financial",
+        "Community Mutual",
+        "Reserve",
+        "Fund",
+        "Bank",
+        "Investment Solutions",
+        "Group",
+        "Mutual",
+        "Financial Corporation",
+        "Financial Group",
+        "Holdings",
+    ]
 
     state_names = [
         "Alabama",
@@ -68,26 +102,28 @@ def bank_name():
         "America",
     ]
 
-    cities = ["Lincoln",
-              "Detroit",
-              "San Francisco",
-              "Houston",
-              "Akron",
-              "Modesto",
-              "Wichita",
-              "Honolulu",
-              "Tampa",
-              "Las Vegas",
-              "El Paso",
-              "Tulsa",
-              "Toledo",
-              "Kansas City",
-              "Anchorage",
-              "St. Paul",
-              "Anaheim",
-              "Birmingham",
-              "Atlanta",
-              "St. Louis"]
+    cities = [
+        "Lincoln",
+        "Detroit",
+        "San Francisco",
+        "Houston",
+        "Akron",
+        "Modesto",
+        "Wichita",
+        "Honolulu",
+        "Tampa",
+        "Las Vegas",
+        "El Paso",
+        "Tulsa",
+        "Toledo",
+        "Kansas City",
+        "Anchorage",
+        "St. Paul",
+        "Anaheim",
+        "Birmingham",
+        "Atlanta",
+        "St. Louis",
+    ]
 
     choice = random.randint(1, 5)
     bank = ""
