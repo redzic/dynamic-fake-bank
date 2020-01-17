@@ -36,7 +36,7 @@ You can also customize the bank yourself, by manually specifying which templates
 
 ## Dependencies
 
-You must have Sass installed. Please install SassC instead of some other implementation, because it is noticeably faster. You can verify that it is installed by typing `sassc -v` or `sass v` and seeing if there are any version numbers listed.
+You must have Sass installed. Please install SassC instead of some other implementation, because it is noticeably faster. You can verify that it is installed by typing `sassc -v` or `sass -v` and seeing if there are any version numbers listed.
 
 The project uses Python 3 and Django, with a minor Python dependency, which is colorama.
 
