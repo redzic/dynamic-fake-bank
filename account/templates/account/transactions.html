@@ -1,0 +1,59 @@
+{% extends 'account/base.html' %}
+
+{% block title %}{{ BANK_NAME }} &mdash; Transactions History{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="banner flex justify-center bg-teal-500">
+    <div class="flex-auto">
+        <p class="text-4xl font-primary font-semibold text-white text-center">{{ BANK_NAME }}</p>
+    </div>
+</div>
+<div class="bg-black-gradient px-dynamic flex justify-center">
+    <ul class="flex-initial">
+        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="./">Accounts</a></li>
+        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="./transfer">Transfer</a></li>
+        <li class="inline-block mr-12 py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="#">Contact</a></li>
+        <li class="inline-block py-2"><a class="font-secondary text-white hover:text-gray-400 hover:underline"
+                href="../../">Logout</a></li>
+    </ul>
+</div>
+
+<div class="grid-container">
+
+    <p class="font-semibold text-2xl font-secondary">Transaction History</p>
+    <table class="table table-auto w-full font-tertiary shadow-xl rounded-lg mb-10">
+        <tr>
+            <th class="px-8 py-5">Date</th>
+            <th class="px-8 py-5">Account</th>
+            <th class="px-8 py-5">Description</th>
+            <th class="px-8 py-5">Type</th>
+            <th class="px-8 py-5">Amount</th>
+            <th class="px-8 py-5"></th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td class="px-8 py-5">{{ transaction.format_date }}</td>
+            <td class="px-8 py-5">****{{ transaction.format_account_number }}</td>
+            <td class="px-8 py-5">{{ transaction.description }}</td>
+            <td class="px-8 py-5">{{ transaction.category }}</td>
+            <td class="px-8 py-5">
+                <p>{{ transaction.format_amount }}</p>
+            </td>
+            <td class="px-8 py-5">
+                <a href="">
+                    <p class="text-red-600 hover:underline">Dispute</p>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="font-tertiary text-sm text-gray-600">We only display the past 30 days of activity in your web portal.
+        Please use the mobile banking app to view your entire transaction history.</p>
+</div>
+
+{% endblock %}
