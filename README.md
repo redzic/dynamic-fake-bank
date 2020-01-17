@@ -34,6 +34,10 @@ Currently, randomizing only the header and main content are supported. This will
 
 You can also customize the bank yourself, by manually specifying which templates you want to use, the bank name, and the fonts. You can do this by editing `config.json` to your will and running `python build.py -b`. Currently, only fonts available through Google Fonts are supported.
 
+### Account information
+
+You can also randomize account information (account numbers, account balance) with `build.py` with the `-a` flag. Simply run `python build.py -a` to randomize your account information. You can combine these flags (e.g. `python build.py -bga`) to randomize more than one thing at a time.
+
 ## Dependencies
 
 You must have Sass installed. Please install SassC instead of some other implementation, because it is noticeably faster. You can verify that it is installed by typing `sassc -v` or `sass -v` and seeing if there are any version numbers listed.
